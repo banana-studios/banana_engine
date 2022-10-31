@@ -1,0 +1,11 @@
+[package]
+edition = "2021"
+name    = "bananaengine_dylib"
+publish = false
+version = "0.1.0"
+
+[lib]
+crate-type = ["dylib"]
+
+[dependencies]
+bananaengine_internal = { path = "../bananaengine_internal", default-features = false }

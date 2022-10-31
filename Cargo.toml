@@ -1,0 +1,27 @@
+[package]
+edition = "2021"
+name    = "banana_engine"
+publish = false
+version = "0.1.0"
+
+[dependencies]
+bananaengine_dylib    = { path = "bananaengine_dylib", optional = true }
+bananaengine_internal = { path = "bananaengine_internal", default-features = false }
+
+[features]
+2d       = ["bananaengine_internal/2d"]
+3d       = ["bananaengine_internal/3d"]
+audio    = ["bananaengine_internal/audio"]
+bevy-ui  = ["bananaengine_internal/bevy-ui"]
+default  = ["bananaengine_internal/default"]
+dev      = ["bananaengine_internal/dev"]
+dynamic  = ["bananaengine_dylib"]
+parallel = ["bananaengine_internal/parallel"]
+physics  = ["bananaengine_internal/physics"]
+release  = ["bananaengine_internal/release"]
+shapes   = ["bananaengine_internal/shapes"]
+tilemap  = ["bananaengine_internal/tilemap"]
+
+# [patch.crates-io]
+# bevy       = { git = "https://github.com/bevyengine/bevy" }
+# bevy_scene = { git = "https://github.com/bevyengine/bevy" }

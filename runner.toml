@@ -1,0 +1,45 @@
+[tasks.format]
+args          = ["fmt", "--", "--emit=files"]
+command       = "cargo"
+install_crate = "rustfmt"
+
+[tasks.clean-cache]
+script = "cargo-cache -a"
+
+[tasks.clean-local]
+args    = ["clean"]
+command = "cargo"
+
+[tasks.clean]
+args         = ["clean"]
+command      = "cargo"
+dependencies = ["clean-local", "clean-cache"]
+
+# Building
+
+[tasks.build-debug]
+args    = ["build"]
+command = "cargo"
+
+[tasks.build-release]
+args    = ["build", "--release"]
+command = "cargo"
+
+# Runners
+[tasks.run-debug]
+args    = ["run", "--debug"]
+command = "cargo"
+
+[tasks.run-release]
+args    = ["run", "--release"]
+command = "cargo"
+
+# Main Task
+[tasks.utils]
+dependencies = ["format"]
+
+[tasks.dev]
+dependencies = ["build", "run-debug"]
+
+[tasks.release]
+dependencies = ["build", "run-release"]

@@ -1,0 +1,130 @@
+[package]
+edition = "2021"
+name    = "bananaengine_internal"
+publish = false
+version = "0.1.0"
+
+[features]
+default = [
+  "bevy/bevy_scene",
+  "bevy/bevy_asset",
+  "bevy/bevy_gilrs",
+  "bevy/x11",
+  "bevy/wayland",
+  "bevy/bevy_winit",
+  "bevy/bevy_core_pipeline",
+  "bevy/bevy_render",
+]
+
+# configuration for dev builds
+dev = ["bevy/filesystem_watcher"]
+
+# configuration for release builds
+release = []
+
+# configuration for 2d games
+2d = [
+  "banana_bevy_utils/2d",
+  "bevy/bevy_sprite",
+  "bevy/png",
+  "bevy/ktx2",
+  "bevy/zstd",
+  "bevy_tweening/bevy_sprite",
+  "bevy_asset_loader/2d",
+  "bevy_rapier2d",
+]
+
+# configuration for 3d games
+3d = [
+  "bevy/bevy_pbr",
+  "bevy/bevy_gltf",
+  "bevy/hdr",
+  "bevy/dds",
+  "bevy/ktx2",
+  "bevy/zstd",
+  "bevy_asset_loader/3d",
+  "bevy_rapier3d",
+]
+
+# if using bevy ui
+bevy-ui = [
+  "banana_bevy_utils/bevy_ui",
+  "2d",
+  "bevy_tweening/bevy_ui",
+  "bevy/bevy_text",
+  "bevy/bevy_ui",
+]
+
+# add audio support (kira)
+audio = ["bevy_kira_audio"]
+
+# for 2d tilemap games
+tilemap = ["2d", "bevy_ecs_tilemap"]
+
+# add a physics engine (rapier)
+physics = ["bevy_rapier2d", "bevy_rapier3d"]
+
+# for 2d shapes
+shapes = ["2d", "bevy_prototype_lyon"]
+
+# Parallelism
+parallel = ["rayon"]
+
+[dependencies.bevy]
+default-features = false
+version          = "*"
+
+[dependencies.banana_bevy_utils]
+git = "https://github.com/lecoqjacob/banana_bevy_utils"
+
+[dependencies.iyes_loopless]
+git = "https://github.com/IyesGames/iyes_loopless"
+
+[dependencies.iyes_progress]
+features = ["iyes_loopless", "assets"]
+git      = "https://github.com/IyesGames/iyes_progress"
+
+[dependencies.bevy_common_assets]
+features = ["ron", "toml", "json", "yaml", "msgpack"]
+git      = "https://github.com/NiklasEi/bevy_common_assets"
+
+[dependencies.bevy_tweening]
+default-features = false
+features         = ["bevy_asset"]
+git              = "https://github.com/djeedai/bevy_tweening"
+optional         = false
+
+[dependencies.bevy_ecs_tilemap]
+git      = "https://github.com/StarArawn/bevy_ecs_tilemap"
+optional = true
+
+[dependencies.bevy_asset_loader]
+features = [
+  "standard_dynamic_assets",
+  "stageless",
+  "progress_tracking",
+  "progress_tracking_stageless",
+]
+git = "https://github.com/NiklasEi/bevy_asset_loader"
+
+[dependencies.bevy_kira_audio]
+default-features = false
+features         = ["flac"]
+git              = "https://github.com/NiklasEi/bevy_kira_audio"
+optional         = true
+
+[dependencies.bevy_prototype_lyon]
+git      = "https://github.com/Nilirad/bevy_prototype_lyon"
+optional = true
+
+[dependencies.bevy_rapier2d]
+git      = "https://github.com/dimforge/bevy_rapier"
+optional = true
+
+[dependencies.bevy_rapier3d]
+git      = "https://github.com/dimforge/bevy_rapier"
+optional = true
+
+[dependencies.rayon]
+git      = "https://github.com/rayon-rs/rayon"
+optional = true
