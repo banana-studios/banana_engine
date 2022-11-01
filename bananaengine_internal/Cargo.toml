@@ -70,6 +70,9 @@ shapes = ["2d", "bevy_prototype_lyon"]
 # Parallelism
 parallel = ["rayon"]
 
+debug = ["bevy-inspector-egui"]
+egui  = ["bevy_egui"]
+
 [dependencies.bevy]
 default-features = false
 version          = "0.8"
@@ -131,4 +134,12 @@ optional = true
 
 [dependencies.bevy_embedded_assets]
 git      = "https://github.com/vleue/bevy_embedded_assets"
+optional = true
+
+[dependencies.bevy-inspector-egui]
+git      = "https://github.com/jakobhellermann/bevy-inspector-egui"
+optional = true
+
+[dependencies.bevy_egui]
+git      = "https://github.com/mvlabat/bevy_egui"
 optional = true
