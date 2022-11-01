@@ -256,10 +256,11 @@ version = "0.1.0"
 dependencies = [
  "banana_bevy_utils",
  "bevy 0.8.1",
+ "bevy-inspector-egui",
  "bevy_asset_loader",
  "bevy_common_assets 0.3.0 (git+https://github.com/NiklasEi/bevy_common_assets)",
  "bevy_ecs_tilemap",
- "bevy_egui",
+ "bevy_egui 0.16.1 (git+https://github.com/mvlabat/bevy_egui)",
  "bevy_embedded_assets",
  "bevy_kira_audio",
  "bevy_prototype_lyon",
@@ -300,6 +301,28 @@ version = "0.9.0-dev"
 source = "git+https://github.com/bevyengine/bevy#87d4c6380da909f399f5d988f8d9554e518f4cb4"
 dependencies = [
  "bevy_internal 0.9.0-dev (git+https://github.com/bevyengine/bevy)",
+]
+
+[[package]]
+name = "bevy-inspector-egui"
+version = "0.13.0"
+source = "git+https://github.com/jakobhellermann/bevy-inspector-egui#39845201c31b7edbf41d4aaf5d324271b1cfa2ab"
+dependencies = [
+ "bevy 0.8.1",
+ "bevy-inspector-egui-derive",
+ "bevy_egui 0.16.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "image 0.23.14",
+ "pretty-type-name",
+]
+
+[[package]]
+name = "bevy-inspector-egui-derive"
+version = "0.13.0"
+source = "git+https://github.com/jakobhellermann/bevy-inspector-egui#39845201c31b7edbf41d4aaf5d324271b1cfa2ab"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]
@@ -742,6 +765,19 @@ dependencies = [
  "bevy 0.8.1",
  "log",
  "regex",
+]
+
+[[package]]
+name = "bevy_egui"
+version = "0.16.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d365761fd6a5c227b1f88f38b560287334accb69cfe938443e27615464edc897"
+dependencies = [
+ "arboard",
+ "bevy 0.8.1",
+ "egui",
+ "thread_local",
+ "webbrowser",
 ]
 
 [[package]]
@@ -4088,6 +4124,12 @@ checksum = "bb458bb7f6e250e6eb79d5026badc10a3ebb8f9a15d1fff0f13d17c71f4d6dee"
 dependencies = [
  "unicode-xid",
 ]
+
+[[package]]
+name = "pretty-type-name"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a8815d101cfb4cb491154896bdab292a395a7ac9ab185a9941a2f5be0135900d"
 
 [[package]]
 name = "proc-macro-crate"

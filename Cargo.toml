@@ -4,9 +4,12 @@ name    = "banana_engine"
 publish = false
 version = "0.1.0"
 
+[workspace]
+members = ["crates/*"]
+
 [dependencies]
-bananaengine_dylib    = { path = "bananaengine_dylib", optional = true }
-bananaengine_internal = { path = "bananaengine_internal", default-features = false }
+bananaengine_dylib    = { path = "crates/bananaengine_dylib", optional = true }
+bananaengine_internal = { path = "crates/bananaengine_internal", default-features = false }
 
 [features]
 2d       = ["bananaengine_internal/2d"]
