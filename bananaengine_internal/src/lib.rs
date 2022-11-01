@@ -65,6 +65,14 @@ impl Plugin for BananaExtrasPlugin {
 pub struct BananaEverythingPlugin;
 impl Plugin for BananaEverythingPlugin {
     fn build(&self, app: &mut App) {
-        app.add_plugins(bevy::DefaultPlugins).add_plugin(BananaExtrasPlugin);
+        app.add_plugins_with(bevy::DefaultPlugins, |group| {
+            #[cfg(feature = "bundled")]
+            group.add_before::<bevy::asset::AssetPlugin, _>(
+                bevy_embedded_assets::EmbeddedAssetPlugin,
+            );
+
+            group
+        })
+        .add_plugin(BananaExtrasPlugin);
     }
 }

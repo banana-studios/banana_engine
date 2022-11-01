@@ -21,7 +21,3 @@ physics  = ["bananaengine_internal/physics"]
 release  = ["bananaengine_internal/release"]
 shapes   = ["bananaengine_internal/shapes"]
 tilemap  = ["bananaengine_internal/tilemap"]
-
-# [patch.crates-io]
-# bevy       = { git = "https://github.com/bevyengine/bevy" }
-# bevy_scene = { git = "https://github.com/bevyengine/bevy" }

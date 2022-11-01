@@ -20,7 +20,7 @@ default = [
 dev = ["bevy/filesystem_watcher"]
 
 # configuration for release builds
-release = []
+release = ["bevy_embedded_assets"]
 
 # configuration for 2d games
 2d = [
@@ -72,7 +72,7 @@ parallel = ["rayon"]
 
 [dependencies.bevy]
 default-features = false
-version          = "*"
+version          = "0.8"
 
 [dependencies.banana_bevy_utils]
 git = "https://github.com/lecoqjacob/banana_bevy_utils"
@@ -127,4 +127,8 @@ optional = true
 
 [dependencies.rayon]
 git      = "https://github.com/rayon-rs/rayon"
+optional = true
+
+[dependencies.bevy_embedded_assets]
+git      = "https://github.com/vleue/bevy_embedded_assets"
 optional = true
