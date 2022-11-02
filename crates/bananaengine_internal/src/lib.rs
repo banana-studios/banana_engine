@@ -30,6 +30,9 @@ pub use bevy_ecs_tilemap;
 #[cfg(feature = "bevy_kira_audio")]
 pub use bevy_kira_audio;
 
+#[cfg(feature = "serialize")]
+pub use serde::{Deserialize, Serialize};
+
 pub mod prelude {
     pub use crate::*;
     pub use bevy::prelude::*;
@@ -45,6 +48,9 @@ pub mod prelude {
 
     #[cfg(feature = "bevy_ecs_tilemap")]
     pub use bevy_ecs_tilemap::prelude::*;
+
+    #[cfg(feature = "serialize")]
+    pub use serde::{Deserialize, Serialize};
 }
 
 /// Adds and configures all the stuff on top of Bevy

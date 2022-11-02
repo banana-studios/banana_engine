@@ -84,6 +84,9 @@ wgpu_trace   = ["bevy/wgpu_trace"]
 # Bracket-lib
 bracket-lib = ["bracket-bevy", "bracket-pathfinding", "bracket-noise", "bracket-rex"]
 
+#serde
+serialize = ["serde"]
+
 [dependencies.bevy]
 default-features = false
 version          = "0.8"
@@ -93,6 +96,11 @@ git = "https://github.com/lecoqjacob/banana_bevy_utils"
 
 [dependencies.iyes_loopless]
 git = "https://github.com/IyesGames/iyes_loopless"
+
+[dependencies.serde]
+features = ["derive"]
+optional = true
+version  = "1"
 
 [dependencies.iyes_progress]
 features = ["iyes_loopless", "assets"]
