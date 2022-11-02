@@ -25,3 +25,12 @@ physics  = ["bananaengine_internal/physics"]
 release  = ["bananaengine_internal/release"]
 shapes   = ["bananaengine_internal/shapes"]
 tilemap  = ["bananaengine_internal/tilemap"]
+
+# Tracing features
+trace        = ["bananaengine_internal/trace"]
+trace_chrome = ["trace", "bananaengine_internal/trace_chrome"]
+trace_tracy  = ["trace", "bananaengine_internal/trace_tracy"]
+wgpu_trace   = ["bananaengine_internal/wgpu_trace"]
+
+# Enable the "debug asset server" for hot reloading internal assets
+debug_asset_server = ["bananaengine_internal/debug_asset_server"]

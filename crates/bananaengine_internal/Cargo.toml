@@ -70,8 +70,17 @@ shapes = ["2d", "bevy_prototype_lyon"]
 # Parallelism
 parallel = ["rayon"]
 
+# Debbuing + Egui
 debug = ["bevy-inspector-egui"]
 egui  = ["bevy_egui"]
+
+# Trace
+trace        = ["bevy/trace"]
+trace_chrome = ["bevy/trace_chrome"]
+trace_tracy  = ["bevy/trace_tracy"]
+wgpu_trace   = ["bevy/wgpu_trace"]
+
+debug_asset_server = ["bevy/debug_asset_server"]
 
 [dependencies.bevy]
 default-features = false
