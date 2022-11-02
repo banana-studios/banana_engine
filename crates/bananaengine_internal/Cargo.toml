@@ -71,8 +71,9 @@ shapes = ["2d", "bevy_prototype_lyon"]
 parallel = ["rayon"]
 
 # Debbuing + Egui
-debug = ["bevy-inspector-egui"]
-egui  = ["bevy_egui"]
+debug              = ["bevy-inspector-egui"]
+debug_asset_server = ["bevy/debug_asset_server"]
+egui               = ["bevy_egui"]
 
 # Trace
 trace        = ["bevy/trace"]
@@ -80,7 +81,8 @@ trace_chrome = ["bevy/trace_chrome"]
 trace_tracy  = ["bevy/trace_tracy"]
 wgpu_trace   = ["bevy/wgpu_trace"]
 
-debug_asset_server = ["bevy/debug_asset_server"]
+# Bracket-lib
+bracket-lib = ["bracket-bevy", "bracket-pathfinding", "bracket-noise", "bracket-rex"]
 
 [dependencies.bevy]
 default-features = false
@@ -151,4 +153,25 @@ optional = true
 
 [dependencies.bevy_egui]
 git      = "https://github.com/mvlabat/bevy_egui"
+optional = true
+
+# bracket-lib
+[dependencies.bracket-bevy]
+branch   = "custom"
+git      = "https://github.com/lecoqjacob/bracket-lib"
+optional = true
+
+[dependencies.bracket-pathfinding]
+branch   = "custom"
+git      = "https://github.com/lecoqjacob/bracket-lib"
+optional = true
+
+[dependencies.bracket-rex]
+branch   = "custom"
+git      = "https://github.com/lecoqjacob/bracket-lib"
+optional = true
+
+[dependencies.bracket-noise]
+branch   = "custom"
+git      = "https://github.com/lecoqjacob/bracket-lib"
 optional = true
