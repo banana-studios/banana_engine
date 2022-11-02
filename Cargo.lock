@@ -233,9 +233,10 @@ checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 [[package]]
 name = "banana_bevy_utils"
 version = "0.1.0"
-source = "git+https://github.com/lecoqjacob/banana_bevy_utils#48766715697b7284bec66a21e30410733e6c9d07"
+source = "git+https://github.com/lecoqjacob/banana_bevy_utils#f3105a3306c84a7d583b89d67a786d772626a31a"
 dependencies = [
  "bevy 0.8.1",
+ "iyes_loopless 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -3145,6 +3146,7 @@ checksum = "20f42b3a59033b3372129b84850a6d39e02c25f3f170c4f8b84232b775602bb0"
 dependencies = [
  "bevy_app 0.8.1",
  "bevy_ecs 0.8.1",
+ "bevy_time 0.8.1",
  "bevy_utils 0.8.1",
 ]
 
