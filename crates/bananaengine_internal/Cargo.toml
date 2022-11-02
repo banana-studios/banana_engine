@@ -87,7 +87,8 @@ default-features = false
 version          = "0.8"
 
 [dependencies.banana_bevy_utils]
-git = "https://github.com/lecoqjacob/banana_bevy_utils"
+features = ["stageless"]
+git      = "https://github.com/lecoqjacob/banana_bevy_utils"
 
 [dependencies.iyes_loopless]
 git = "https://github.com/IyesGames/iyes_loopless"
