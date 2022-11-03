@@ -30,18 +30,22 @@ pub use bevy_ecs_tilemap;
 #[cfg(feature = "bevy_kira_audio")]
 pub use bevy_kira_audio;
 
-#[cfg(feature = "serialize")]
-pub use serde::{Deserialize, Serialize};
+#[cfg(feature = "random")]
+pub use rand;
 
 pub mod prelude {
     pub use crate::*;
     pub use bevy::prelude::*;
 
     pub use banana_bevy_utils::prelude::*;
+    pub use bevy_asset_loader::prelude::*;
     pub use iyes_loopless::prelude::*;
     pub use iyes_progress::prelude::*;
 
-    pub use bevy_asset_loader::prelude::*;
+    pub use lazy_static::lazy_static;
+
+    #[cfg(feature = "utility")]
+    pub use {anyhow::*, once_cell::sync::Lazy};
 
     #[cfg(feature = "bevy_kira_audio")]
     pub use bevy_kira_audio::*;
@@ -49,8 +53,8 @@ pub mod prelude {
     #[cfg(feature = "bevy_ecs_tilemap")]
     pub use bevy_ecs_tilemap::prelude::*;
 
-    #[cfg(feature = "serialize")]
-    pub use serde::{Deserialize, Serialize};
+    #[cfg(feature = "random")]
+    pub use rand::prelude::*;
 }
 
 /// Adds and configures all the stuff on top of Bevy

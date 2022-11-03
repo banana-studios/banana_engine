@@ -84,8 +84,19 @@ wgpu_trace   = ["bevy/wgpu_trace"]
 # Bracket-lib
 bracket-lib = ["bracket-bevy", "bracket-pathfinding", "bracket-noise", "bracket-rex"]
 
-#serde
-serialize = ["serde"]
+# Rand
+random = ["rand"]
+
+# Utility
+utility = ["once_cell", "anyhow"]
+
+[dependencies]
+lazy_static = { version = "1" }
+parking_lot = { version = "0.12" }
+
+anyhow    = { version = "1", optional = true }
+once_cell = { version = "1.0", optional = true }
+rand      = { version = "0.8", optional = true }
 
 [dependencies.bevy]
 default-features = false
@@ -96,11 +107,6 @@ git = "https://github.com/lecoqjacob/banana_bevy_utils"
 
 [dependencies.iyes_loopless]
 git = "https://github.com/IyesGames/iyes_loopless"
-
-[dependencies.serde]
-features = ["derive"]
-optional = true
-version  = "1"
 
 [dependencies.iyes_progress]
 features = ["iyes_loopless", "assets"]
@@ -127,7 +133,7 @@ features = [
   "progress_tracking",
   "progress_tracking_stageless",
 ]
-git = "https://github.com/NiklasEi/bevy_asset_loader"
+git = "https://github.com/banana-studios/bevy_asset_loader"
 
 [dependencies.bevy_kira_audio]
 default-features = false
