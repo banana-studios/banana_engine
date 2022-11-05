@@ -30,7 +30,7 @@ pub use bevy_ecs_tilemap;
 #[cfg(feature = "bevy_kira_audio")]
 pub use bevy_kira_audio;
 
-#[cfg(feature = "random")]
+#[cfg(feature = "rng")]
 pub use bevy_turborand;
 
 #[cfg(feature = "debug")]
@@ -40,7 +40,6 @@ pub mod prelude {
     pub use crate::*;
     pub use bevy::prelude::*;
 
-    // pub use bevy_asset_loader::prelude::*;
     pub use banana_bevy_utils::prelude::*;
     pub use iyes_loopless::prelude::*;
     pub use iyes_progress::prelude::*;
@@ -53,7 +52,7 @@ pub mod prelude {
     #[cfg(feature = "bevy_ecs_tilemap")]
     pub use bevy_ecs_tilemap::prelude::*;
 
-    #[cfg(feature = "random")]
+    #[cfg(feature = "rng")]
     pub use bevy_turborand::{prelude::*, *};
 
     #[cfg(feature = "utility")]
@@ -72,7 +71,7 @@ impl Plugin for BananaExtrasPlugin {
         #[cfg(feature = "bevy_ecs_tilemap")]
         app.add_plugin(bevy_ecs_tilemap::TilemapPlugin);
 
-        #[cfg(feature = "random")]
+        #[cfg(feature = "rng")]
         app.add_plugin(bevy_turborand::RngPlugin::default());
     }
 }

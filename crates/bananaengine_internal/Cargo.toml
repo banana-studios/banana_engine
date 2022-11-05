@@ -80,7 +80,7 @@ wgpu_trace   = ["bevy/wgpu_trace"]
 bracket-lib = ["bracket-bevy", "bracket-pathfinding", "bracket-noise", "bracket-rex"]
 
 # Rand
-random = ["bevy_turborand"]
+rng = ["bevy_turborand", "banana_bevy_utils/rng"]
 
 # Utility
 utility = ["once_cell", "anyhow"]
@@ -107,7 +107,8 @@ default-features = false
 version          = "0.8"
 
 [dependencies.banana_bevy_utils]
-git = "https://github.com/lecoqjacob/banana_bevy_utils"
+# git = "https://github.com/banana-studio/banana_bevy_utils"
+path = "../../../banana_bevy_utils"
 
 [dependencies.iyes_loopless]
 features = ["states"]

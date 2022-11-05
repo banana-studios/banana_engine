@@ -233,9 +233,9 @@ checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 [[package]]
 name = "banana_bevy_utils"
 version = "0.1.0"
-source = "git+https://github.com/lecoqjacob/banana_bevy_utils#f3105a3306c84a7d583b89d67a786d772626a31a"
 dependencies = [
  "bevy 0.8.1",
+ "bevy_turborand 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "iyes_loopless 0.8.0",
 ]
 
@@ -271,7 +271,7 @@ dependencies = [
  "bevy_prototype_lyon",
  "bevy_rapier2d",
  "bevy_rapier3d",
- "bevy_turborand",
+ "bevy_turborand 0.3.0 (git+https://github.com/Bluefinger/bevy_turborand)",
  "bevy_tweening",
  "bracket-bevy",
  "bracket-noise",
@@ -1791,6 +1791,16 @@ dependencies = [
  "bevy_hierarchy 0.9.0-dev (git+https://github.com/bevyengine/bevy)",
  "bevy_math 0.9.0-dev (git+https://github.com/bevyengine/bevy)",
  "bevy_reflect 0.9.0-dev (git+https://github.com/bevyengine/bevy)",
+]
+
+[[package]]
+name = "bevy_turborand"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a3c290ae2c7577a1a184755daf2c8ef27c1eb68f80e7909280836e1b37b87c41"
+dependencies = [
+ "bevy 0.8.1",
+ "turborand",
 ]
 
 [[package]]
