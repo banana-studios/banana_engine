@@ -24,7 +24,7 @@ release = ["bevy_embedded_assets"]
 
 # configuration for 2d games
 2d = [
-  "banana_bevy_utils/2d",
+  # "banana_bevy_utils/2d",
   "bevy/bevy_sprite",
   "bevy/png",
   "bevy/ktx2",
