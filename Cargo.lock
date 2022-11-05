@@ -236,11 +236,11 @@ version = "0.1.0"
 source = "git+https://github.com/lecoqjacob/banana_bevy_utils#f3105a3306c84a7d583b89d67a786d772626a31a"
 dependencies = [
  "bevy 0.8.1",
- "iyes_loopless 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "iyes_loopless 0.8.0",
 ]
 
 [[package]]
-name = "banana_engine"
+name = "bananaengine"
 version = "0.1.0"
 dependencies = [
  "bananaengine_dylib",
@@ -262,27 +262,28 @@ dependencies = [
  "banana_bevy_utils",
  "bevy 0.8.1",
  "bevy-inspector-egui",
- "bevy_asset_loader",
- "bevy_common_assets 0.3.0 (git+https://github.com/NiklasEi/bevy_common_assets)",
+ "bevy_common_assets",
  "bevy_ecs_tilemap",
  "bevy_egui 0.16.1 (git+https://github.com/mvlabat/bevy_egui)",
  "bevy_embedded_assets",
  "bevy_kira_audio",
+ "bevy_mod_debugdump",
  "bevy_prototype_lyon",
  "bevy_rapier2d",
  "bevy_rapier3d",
+ "bevy_turborand",
  "bevy_tweening",
  "bracket-bevy",
  "bracket-noise",
  "bracket-pathfinding",
  "bracket-rex",
- "iyes_loopless 0.8.0 (git+https://github.com/IyesGames/iyes_loopless)",
- "iyes_progress 0.6.0 (git+https://github.com/IyesGames/iyes_progress)",
+ "iyes_loopless 0.7.1",
+ "iyes_progress",
  "lazy_static",
  "once_cell",
  "parking_lot 0.12.1",
- "rand",
  "rayon",
+ "ron 0.8.0",
 ]
 
 [[package]]
@@ -480,30 +481,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "bevy_asset_loader"
-version = "0.12.1"
-source = "git+https://github.com/banana-studios/bevy_asset_loader#e41c7fb81650b0ba2a961eaec23f7c8181dea6ae"
-dependencies = [
- "anyhow",
- "bevy 0.8.1",
- "bevy_asset_loader_derive",
- "bevy_common_assets 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "iyes_loopless 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "iyes_progress 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "serde",
-]
-
-[[package]]
-name = "bevy_asset_loader_derive"
-version = "0.12.1"
-source = "git+https://github.com/banana-studios/bevy_asset_loader#e41c7fb81650b0ba2a961eaec23f7c8181dea6ae"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "bevy_audio"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -522,24 +499,12 @@ dependencies = [
 [[package]]
 name = "bevy_common_assets"
 version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3f7be9ee39085d8319d5cd853447b0b5c4f8b4bfd647aec91e2bd996e9db67ef"
-dependencies = [
- "anyhow",
- "bevy 0.8.1",
- "ron",
- "serde",
-]
-
-[[package]]
-name = "bevy_common_assets"
-version = "0.3.0"
 source = "git+https://github.com/NiklasEi/bevy_common_assets#b9b81232484ca76915be15d10cb21e34da4dd3e4"
 dependencies = [
  "anyhow",
  "bevy 0.8.1",
  "rmp-serde",
- "ron",
+ "ron 0.7.1",
  "serde",
  "serde_json",
  "serde_yaml",
@@ -1236,6 +1201,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "bevy_mod_debugdump"
+version = "0.5.0"
+source = "git+https://github.com/jakobhellermann/bevy_mod_debugdump#a1c25adacd1bacb14ff11074b4bfe7556e0484cd"
+dependencies = [
+ "bevy_app 0.8.1",
+ "bevy_ecs 0.8.1",
+ "bevy_render 0.8.1",
+ "pretty-type-name",
+]
+
+[[package]]
 name = "bevy_pbr"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1623,7 +1599,7 @@ dependencies = [
  "bevy_render 0.8.1",
  "bevy_transform 0.8.1",
  "bevy_utils 0.8.1",
- "ron",
+ "ron 0.7.1",
  "serde",
  "thiserror",
  "uuid",
@@ -1815,6 +1791,15 @@ dependencies = [
  "bevy_hierarchy 0.9.0-dev (git+https://github.com/bevyengine/bevy)",
  "bevy_math 0.9.0-dev (git+https://github.com/bevyengine/bevy)",
  "bevy_reflect 0.9.0-dev (git+https://github.com/bevyengine/bevy)",
+]
+
+[[package]]
+name = "bevy_turborand"
+version = "0.3.0"
+source = "git+https://github.com/Bluefinger/bevy_turborand#477f4a20c4eaf0a95311adc9ab3cb6fa85ce55f9"
+dependencies = [
+ "bevy 0.8.1",
+ "turborand",
 ]
 
 [[package]]
@@ -3268,6 +3253,18 @@ checksum = "4217ad341ebadf8d8e724e264f13e593e0648f5b3e94b3896a5df283be015ecc"
 
 [[package]]
 name = "iyes_loopless"
+version = "0.7.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fec251a82c60be9e282aec12056fa153666d5730b21d124655d7c22114d342c8"
+dependencies = [
+ "bevy_app 0.8.1",
+ "bevy_ecs 0.8.1",
+ "bevy_time 0.8.1",
+ "bevy_utils 0.8.1",
+]
+
+[[package]]
+name = "iyes_loopless"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "20f42b3a59033b3372129b84850a6d39e02c25f3f170c4f8b84232b775602bb0"
@@ -3279,37 +3276,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "iyes_loopless"
-version = "0.8.0"
-source = "git+https://github.com/IyesGames/iyes_loopless#3b9f73aedda2d757820262f9a2b83a3b8def4007"
-dependencies = [
- "bevy_app 0.8.1",
- "bevy_ecs 0.8.1",
- "bevy_time 0.8.1",
- "bevy_utils 0.8.1",
-]
-
-[[package]]
 name = "iyes_progress"
-version = "0.6.0"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9eaeccd2b11ae5271bf1fe04c94915b61cb1697fbba97dd313f5844381c57c38"
-dependencies = [
- "bevy_app 0.8.1",
- "bevy_ecs 0.8.1",
- "iyes_loopless 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "iyes_progress"
-version = "0.6.0"
-source = "git+https://github.com/IyesGames/iyes_progress#237cebf83d6e3a0d963a12fd0e6e1be2dac45850"
+checksum = "58acce5d16c3a0568fa351a3161e340439070035648f9bbe5e2b30e9b58d21ec"
 dependencies = [
  "bevy_app 0.8.1",
  "bevy_asset 0.8.1",
  "bevy_ecs 0.8.1",
  "bevy_utils 0.8.1",
- "iyes_loopless 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "iyes_loopless 0.7.1",
 ]
 
 [[package]]
@@ -4327,12 +4303,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "ppv-lite86"
-version = "0.2.16"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "eb9f9e6e233e5c4a35559a617bf40a4ec447db2e84c20b55a6f83167b7e57872"
-
-[[package]]
 name = "pretty-type-name"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4399,18 +4369,6 @@ version = "0.8.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "34af8d1a0e25924bc5b7c43c079c942339d8f0a8b57c39049bef581b46327404"
 dependencies = [
- "libc",
- "rand_chacha",
- "rand_core",
-]
-
-[[package]]
-name = "rand_chacha"
-version = "0.3.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e6c10a63a0fa32252be49d21e7709d4d4baf8d231c2dbce1eaa8141b9b127d88"
-dependencies = [
- "ppv-lite86",
  "rand_core",
 ]
 
@@ -4419,9 +4377,6 @@ name = "rand_core"
 version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
-dependencies = [
- "getrandom",
-]
 
 [[package]]
 name = "rand_xorshift"
@@ -4622,6 +4577,16 @@ name = "ron"
 version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "88073939a61e5b7680558e6be56b419e208420c2adb92be54921fa6b72283f1a"
+dependencies = [
+ "base64",
+ "bitflags",
+ "serde",
+]
+
+[[package]]
+name = "ron"
+version = "0.8.0"
+source = "git+https://github.com/ron-rs/ron#70e45d6e742d702aea7de83d06775cacdf2d4046"
 dependencies = [
  "base64",
  "bitflags",
@@ -5177,6 +5142,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "375812fa44dab6df41c195cd2f7fecb488f6c09fbaafb62807488cefab642bff"
 
 [[package]]
+name = "turborand"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "264a653ca8a3ef1c39cd4e4d0b6bce2ac94a047ac1d5d888779ecddacc896222"
+dependencies = [
+ "getrandom",
+ "instant",
+]
+
+[[package]]
 name = "twox-hash"
 version = "1.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5532,7 +5507,7 @@ dependencies = [
  "parking_lot 0.12.1",
  "profiling",
  "raw-window-handle 0.4.3",
- "ron",
+ "ron 0.7.1",
  "serde",
  "smallvec",
  "thiserror",

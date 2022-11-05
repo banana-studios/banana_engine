@@ -30,7 +30,7 @@ release = ["bevy_embedded_assets"]
   "bevy/ktx2",
   "bevy/zstd",
   "bevy_tweening/bevy_sprite",
-  "bevy_asset_loader/2d",
+  # "bevy_asset_loader/2d",
   "bevy_rapier2d",
 ]
 
@@ -42,7 +42,7 @@ release = ["bevy_embedded_assets"]
   "bevy/dds",
   "bevy/ktx2",
   "bevy/zstd",
-  "bevy_asset_loader/3d",
+  # "bevy_asset_loader/3d",
   "bevy_rapier3d",
 ]
 
@@ -70,11 +70,6 @@ shapes = ["2d", "bevy_prototype_lyon"]
 # Parallelism
 parallel = ["rayon"]
 
-# Debbuing + Egui
-debug              = ["bevy-inspector-egui"]
-debug_asset_server = ["bevy/debug_asset_server"]
-egui               = ["bevy_egui"]
-
 # Trace
 trace        = ["bevy/trace"]
 trace_chrome = ["bevy/trace_chrome"]
@@ -85,19 +80,28 @@ wgpu_trace   = ["bevy/wgpu_trace"]
 bracket-lib = ["bracket-bevy", "bracket-pathfinding", "bracket-noise", "bracket-rex"]
 
 # Rand
-random = ["rand"]
+random = ["bevy_turborand"]
 
 # Utility
 utility = ["once_cell", "anyhow"]
 
+# Debbuing + Egui
+debug              = ["bevy-inspector-egui"]
+debug-graph        = ["bevy_mod_debugdump"]
+debug_asset_server = ["bevy/debug_asset_server"]
+egui               = ["bevy_egui"]
+
 [dependencies]
+# Utility Deps
 lazy_static = { version = "1" }
 parking_lot = { version = "0.12" }
 
 anyhow    = { version = "1", optional = true }
 once_cell = { version = "1.0", optional = true }
-rand      = { version = "0.8", optional = true }
 
+##################################################
+################# Bevy Plguins #######################
+##################################################
 [dependencies.bevy]
 default-features = false
 version          = "0.8"
@@ -106,35 +110,59 @@ version          = "0.8"
 git = "https://github.com/lecoqjacob/banana_bevy_utils"
 
 [dependencies.iyes_loopless]
-git = "https://github.com/IyesGames/iyes_loopless"
+features = ["states"]
+version  = "0.7"
 
 [dependencies.iyes_progress]
 features = ["iyes_loopless", "assets"]
-git      = "https://github.com/IyesGames/iyes_progress"
+version  = "0.5"
 
-[dependencies.bevy_common_assets]
-features = ["ron", "toml", "json", "yaml", "msgpack"]
-git      = "https://github.com/NiklasEi/bevy_common_assets"
-
-[dependencies.bevy_tweening]
-default-features = false
-features         = ["bevy_asset"]
-git              = "https://github.com/djeedai/bevy_tweening"
-optional         = false
-
+# 2D/3D Tilemap
 [dependencies.bevy_ecs_tilemap]
 git      = "https://github.com/StarArawn/bevy_ecs_tilemap"
 optional = true
 
-[dependencies.bevy_asset_loader]
-features = [
-  "standard_dynamic_assets",
-  "stageless",
-  "progress_tracking",
-  "progress_tracking_stageless",
-]
-git = "https://github.com/banana-studios/bevy_asset_loader"
+# Assets
+[dependencies.bevy_common_assets]
+features = ["ron", "toml", "json", "yaml", "msgpack"]
+git      = "https://github.com/NiklasEi/bevy_common_assets"
 
+[dependencies.bevy_embedded_assets]
+git      = "https://github.com/vleue/bevy_embedded_assets"
+optional = true
+
+# [dependencies.bevy_asset_loader]
+# features = [
+#   "standard_dynamic_assets",
+#   "stageless",
+#   "progress_tracking",
+#   "progress_tracking_stageless",
+# ]
+# git = "https://github.com/NiklasEi/bevy_asset_loader"
+
+# Physics
+[dependencies.bevy_rapier2d]
+git      = "https://github.com/dimforge/bevy_rapier"
+optional = true
+
+[dependencies.bevy_rapier3d]
+git      = "https://github.com/dimforge/bevy_rapier"
+optional = true
+
+# Debug + UI
+[dependencies.bevy-inspector-egui]
+git      = "https://github.com/jakobhellermann/bevy-inspector-egui"
+optional = true
+
+[dependencies.bevy_egui]
+git      = "https://github.com/mvlabat/bevy_egui"
+optional = true
+
+[dependencies.bevy_mod_debugdump]
+git      = "https://github.com/jakobhellermann/bevy_mod_debugdump"
+optional = true
+
+# Bevy Utility
 [dependencies.bevy_kira_audio]
 default-features = false
 features         = ["flac"]
@@ -145,31 +173,26 @@ optional         = true
 git      = "https://github.com/Nilirad/bevy_prototype_lyon"
 optional = true
 
-[dependencies.bevy_rapier2d]
-git      = "https://github.com/dimforge/bevy_rapier"
-optional = true
+[dependencies.bevy_tweening]
+default-features = false
+features         = ["bevy_asset"]
+git              = "https://github.com/djeedai/bevy_tweening"
+optional         = false
 
-[dependencies.bevy_rapier3d]
-git      = "https://github.com/dimforge/bevy_rapier"
-optional = true
+##################################################
+################# Utility Plguins #####################
+##################################################
 
 [dependencies.rayon]
 git      = "https://github.com/rayon-rs/rayon"
 optional = true
 
-[dependencies.bevy_embedded_assets]
-git      = "https://github.com/vleue/bevy_embedded_assets"
-optional = true
+[dependencies.ron]
+git = "https://github.com/ron-rs/ron"
 
-[dependencies.bevy-inspector-egui]
-git      = "https://github.com/jakobhellermann/bevy-inspector-egui"
-optional = true
-
-[dependencies.bevy_egui]
-git      = "https://github.com/mvlabat/bevy_egui"
-optional = true
-
-# bracket-lib
+##################################################
+################ Bracket Lib  ########################
+##################################################
 [dependencies.bracket-bevy]
 branch   = "custom"
 git      = "https://github.com/lecoqjacob/bracket-lib"
@@ -188,4 +211,11 @@ optional = true
 [dependencies.bracket-noise]
 branch   = "custom"
 git      = "https://github.com/lecoqjacob/bracket-lib"
+optional = true
+
+##################################################
+###############  Random  ###########################
+##################################################
+[dependencies.bevy_turborand]
+git      = "https://github.com/Bluefinger/bevy_turborand"
 optional = true

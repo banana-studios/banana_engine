@@ -20,9 +20,9 @@ pub use banana_bevy_utils;
 pub use iyes_loopless;
 pub use iyes_progress;
 
-pub use bevy_asset_loader;
 pub use bevy_common_assets;
 pub use bevy_tweening;
+pub use ron;
 
 #[cfg(feature = "bevy_ecs_tilemap")]
 pub use bevy_ecs_tilemap;
@@ -31,21 +31,21 @@ pub use bevy_ecs_tilemap;
 pub use bevy_kira_audio;
 
 #[cfg(feature = "random")]
-pub use rand;
+pub use bevy_turborand;
+
+#[cfg(feature = "debug")]
+pub use {bevy_egui::*, bevy_inspector_egui::prelude::*};
 
 pub mod prelude {
     pub use crate::*;
     pub use bevy::prelude::*;
 
+    // pub use bevy_asset_loader::prelude::*;
     pub use banana_bevy_utils::prelude::*;
-    pub use bevy_asset_loader::prelude::*;
     pub use iyes_loopless::prelude::*;
     pub use iyes_progress::prelude::*;
 
     pub use lazy_static::lazy_static;
-
-    #[cfg(feature = "utility")]
-    pub use {anyhow::*, once_cell::sync::Lazy};
 
     #[cfg(feature = "bevy_kira_audio")]
     pub use bevy_kira_audio::*;
@@ -54,7 +54,10 @@ pub mod prelude {
     pub use bevy_ecs_tilemap::prelude::*;
 
     #[cfg(feature = "random")]
-    pub use rand::prelude::*;
+    pub use bevy_turborand::{prelude::*, *};
+
+    #[cfg(feature = "utility")]
+    pub use {anyhow::*, once_cell::sync::Lazy};
 }
 
 /// Adds and configures all the stuff on top of Bevy
@@ -68,6 +71,9 @@ impl Plugin for BananaExtrasPlugin {
 
         #[cfg(feature = "bevy_ecs_tilemap")]
         app.add_plugin(bevy_ecs_tilemap::TilemapPlugin);
+
+        #[cfg(feature = "random")]
+        app.add_plugin(bevy_turborand::RngPlugin::default());
     }
 }
 
@@ -76,7 +82,7 @@ pub struct BananaEverythingPlugin;
 impl Plugin for BananaEverythingPlugin {
     fn build(&self, app: &mut App) {
         app.add_plugins_with(bevy::DefaultPlugins, |group| {
-            #[cfg(feature = "bundled")]
+            #[cfg(feature = "release")]
             group.add_before::<bevy::asset::AssetPlugin, _>(
                 bevy_embedded_assets::EmbeddedAssetPlugin,
             );
@@ -85,4 +91,10 @@ impl Plugin for BananaEverythingPlugin {
         })
         .add_plugin(BananaExtrasPlugin);
     }
+}
+
+#[cfg(feature = "debug-graph")]
+pub fn debug_bevy_graph(app: &mut App) {
+    bevy_mod_debugdump::print_schedule(app);
+    std::process::exit(0);
 }
