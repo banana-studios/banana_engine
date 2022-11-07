@@ -28,8 +28,9 @@ physics     = ["bananaengine_internal/physics"]
 release     = ["bananaengine_internal/release"]
 rng         = ["bananaengine_internal/rng"]
 shapes      = ["bananaengine_internal/shapes"]
+states      = ["bananaengine_internal/states"]
 tilemap     = ["bananaengine_internal/tilemap"]
-utility     = ["bananaengine_internal/utility"]
+utils       = ["bananaengine_internal/utils"]
 
 # Tracing features
 trace        = ["bananaengine_internal/trace"]

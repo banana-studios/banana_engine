@@ -34,7 +34,10 @@ pub use bevy_kira_audio;
 pub use bevy_turborand;
 
 #[cfg(feature = "debug")]
-pub use {bevy_egui::*, bevy_inspector_egui::prelude::*};
+pub use bevy_inspector_egui;
+
+#[cfg(feature = "egui")]
+pub use bevy_egui;
 
 pub mod prelude {
     pub use crate::*;
@@ -43,8 +46,6 @@ pub mod prelude {
     pub use banana_bevy_utils::prelude::*;
     pub use iyes_loopless::prelude::*;
     pub use iyes_progress::prelude::*;
-
-    pub use lazy_static::lazy_static;
 
     #[cfg(feature = "bevy_kira_audio")]
     pub use bevy_kira_audio::*;
@@ -55,8 +56,14 @@ pub mod prelude {
     #[cfg(feature = "rng")]
     pub use bevy_turborand::{prelude::*, *};
 
-    #[cfg(feature = "utility")]
-    pub use {anyhow::*, once_cell::sync::Lazy};
+    #[cfg(feature = "utils")]
+    pub use {anyhow::*, lazy_static::lazy_static, once_cell::sync::Lazy, parking_lot};
+
+    #[cfg(feature = "debug")]
+    pub use bevy_inspector_egui::prelude::*;
+
+    #[cfg(feature = "egui")]
+    pub use bevy_egui::*;
 }
 
 /// Adds and configures all the stuff on top of Bevy
